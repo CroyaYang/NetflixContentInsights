@@ -26,7 +26,7 @@ SVM;Decision Trees;Fastext;CNN
 ### 在本地仓库（文件夹）工作完成后，要上传文件：
 	git pull origin main
 
-	git add .
+	git add 要上传/更新的文件名称
 
 	git commit -m "说明更改了什么"
 
