@@ -4,23 +4,15 @@ KM6312 Group Work Project
 Netflix Content Insights: A Comprehensive Analysis of Movies and TV Shows
 
 # 目录结构
-├─dataset # 数据集
+| .                     |                   |
+|-----------------------|-------------------|
+| dataset               |                         |
+| ├── original          | original dataset   |
+| └── preprocess        | 目前划分Train/Val/Test后数据集 |
+| Category_Predict      | Task3 model       |
+| Rating_Predict        | Task4 model       |
+| Instructions          | guideline from teacher |
 
-│  ├─original # 初始数据集
-
-│  ├─preprocess # 目前划分Train/Val/Test后数据集
-
-│
-
-├─Category_Predict # Task3 model
-
-│
-
-├─Rating_Predict # Task4 model
-
-│
-
-└─Instructions # guideline from teacher
 
 
 # Github使用
