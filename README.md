@@ -4,15 +4,19 @@ KM6312 Group Work Project
 Netflix Content Insights: A Comprehensive Analysis of Movies and TV Shows
 
 # 目录结构
-| .                     |                   |
+| folders               |                   |
 |-----------------------|-------------------|
 | dataset               |                         |
 | ├── original          | original dataset   |
-| └── preprocess        | 目前划分Train/Val/Test后数据集 |
+| └── preprocess        | 划分Train/Val/Test+简单预处理后数据集 |
 | Category_Predict      | Task3 model       |
 | Rating_Predict        | Task4 model       |
 | Instructions          | guideline from teacher |
 
+# Task3(GOING)
+Predict category according to description&title
+
+SVM;Decision Trees;Fastext;CNN
 
 
 # Github使用
