@@ -56,6 +56,10 @@ compare the following models performance:
 
 SVM;Decision Trees;Fastext;CNN
 
+*现面临问题：尝试了多个模型后（CNN LSTM SVM NB ResNet MLP..）得到验证集和测试集准确率均在50%+，即始终存在验证集准确率不高并持平、学不到东西的问题。初步推测依然由于数据集类别不平衡，所以在数据集拆分环节采用了分层拆分方法，但没有帮助。然后采用K-Fold交叉验证方法，但没有本质上缓解这个问题。需要周六和老师沟通如何解决，可能此数据集本身不太适合做预测或分类工作。
+
+*但我有找到一个在此数据集基础上多一列作品评分的数据集。最后的下下策是更换任务，预测作品评分。先准备其他考试了orz
+
 # 简要Github使用
 ### 通过git clone得到本地仓库
 	git clone https://github.com/YANGKeyan/NetflixContentInsights.git
