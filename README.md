@@ -10,9 +10,12 @@ DATASET FROM: https://www.kaggle.com/datasets/shivamb/netflix-shows
 |-----------------------|-------------------|
 | dataset               |                         |
 | ├── original          | original dataset   |
-| └── preprocessed      | 划分Train/Val/Test+简单预处理后数据集 |
+| └── Task3preprocessed      | processed dataset for task3 |
+| └── Task4preprocessed      | processed dataset for task4 |
 | Category_Predict      | Task3 model       |
+| ├── models          | models for task3   |
 | Rating_Predict        | Task4 model       |
+| ├── models          | models for task4  |
 | Instructions          | guideline from teacher |
 # Task3(delayed)
 ## Predict category according to description&title
@@ -42,6 +45,13 @@ SVM;Decision Trees;Fastext;CNN
 ### 11.16 update:
 
 受其他XMTC项目启发，可以尝试OneVsRest方法。将多类分类问题转换为一系列二元分类问题。
+
+###11.18 update:
+
+尝试tfidf处理特征+OneVsRest分类，结果不错👍
+![目前结果](Pics/task3result.png)
+
+相应地更新了task3的数据集预处理，重新划分了文件夹结构。
 
 # Task4(ON GOING)
 ### 11.15 update:
