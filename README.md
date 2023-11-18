@@ -13,9 +13,9 @@ DATASET FROM: https://www.kaggle.com/datasets/shivamb/netflix-shows
 | └── Task3preprocessed      | processed dataset for task3 |
 | └── Task4preprocessed      | processed dataset for task4 |
 | Category_Predict      | Task3 model       |
-| ├── models          | models for task3   |
+| └── models          | models for task3   |
 | Rating_Predict        | Task4 model       |
-| ├── models          | models for task4  |
+| └── models          | models for task4  |
 | Instructions          | guideline from teacher |
 # Task3(delayed)
 ## Predict category according to description&title
@@ -48,7 +48,8 @@ SVM;Decision Trees;Fastext;CNN
 
 ###11.18 update:
 
-尝试tfidf处理特征+OneVsRest分类，结果不错👍
+尝试tfidf处理特征+OneVsRest分类，结果还不错👍
+
 ![目前结果](Pics/task3result.png)
 
 相应地更新了task3的数据集预处理，重新划分了文件夹结构。
@@ -70,9 +71,9 @@ SVM;Decision Trees;Fastext;CNN
 
 *现面临问题：尝试了多个模型后（CNN LSTM SVM NB ResNet MLP..）训练集正常收敛，但网格搜参后每个模型最佳参数情况下得到验证集和测试集准确率均在50%+，验证集存在从头到尾准确率不变、学不到东西的问题。初步推测依然是数据集类别不平衡造成，所以目前数据集拆分更新为分层拆分方法，但没有帮助。然后采用K-Fold交叉验证方法，但没有本质上解决这个问题。需要周六和老师沟通如何解决，可能此数据集本身不太适合做预测或分类工作。
 
-###  11.16 update:
+###  11.18 update:
 
-*备选数据集：IMDB电影四类分级/在网飞数据集基础上多一列作品评分的数据集。最后的下下策是更换数据集或任务。先准备其他考试了orz
+*尝试tfidf处理特征
 
 # Simple Github Guidance
 ### 通过git clone得到本地仓库
