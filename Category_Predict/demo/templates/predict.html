@@ -10,7 +10,7 @@
 	<div class="container">
 		<p>Enter a plot summary to get genre predictions.</p>
 		<form action="" class="form-inline" method="post">
-			<textarea rows="12" cols="100" type="textarea" class="form-control" placeholder = "{{ my_string }}" name="plot" value="{{request.form.plot}}" >{% if my_string %}{{ my_string }}{% else %}Luke Skywalker, Han Solo, Princess Leia and Chewbacca face attack by the Imperial forces and its AT-AT walkers on the ice planet Hoth. While Han and Leia escape in the Millennium Falcon, Luke travels to Dagobah in search of Yoda. Only with the Jedi Master's help will Luke survive when the Dark Side of the Force beckons him into the ultimate duel with Darth Vader.{% endif %}</textarea>
+			<textarea rows="12" cols="100" type="textarea" class="form-control" style="font-size: 16px;" placeholder = "{{ my_string }}" name="plot" value="{{request.form.plot}}" >{% if my_string %}{{ my_string }}{% else %}Luke Skywalker, Han Solo, Princess Leia and Chewbacca face attack by the Imperial forces and its AT-AT walkers on the ice planet Hoth. While Han and Leia escape in the Millennium Falcon, Luke travels to Dagobah in search of Yoda. Only with the Jedi Master's help will Luke survive when the Dark Side of the Force beckons him into the ultimate duel with Darth Vader.{% endif %}</textarea>
 			<br /><br />
 			<input class="btn" type="submit" value="MAKE PREDICTION">
 		<br />
