@@ -5,56 +5,62 @@ Netflix Content Insights: A Comprehensive Analysis of Movies and TV Shows
 
 DATASET FROM: https://www.kaggle.com/datasets/shivamb/netflix-shows
 
-# 目录结构
+# Directory Structure
 | folders               |                   |
 |-----------------------|-------------------|
-| dataset               |                         |
+| dataset               |                     |
 | ├── original          | original dataset   |
-| └── Task3preprocessed      | processed dataset for task3 |
-| └── Task4preprocessed      | processed dataset for task4 |
-| Category_Predict      | Task3 model       |
-| └── models          | models for task3   |
-| Rating_Predict        | Task4 model       |
-| └── models          | models for task4  |
-| Instructions          | guideline from teacher |
-# Task3(Almost done)
+| └── Task3preprocessed | processed dataset for category predict |
+| Category_Predict      | Task3 model       | 
+| ├── models          | models saved for category predict |
+| └── demo            | Model deployment with Flask  |
+|     ├── static      | css&images |
+|     └── templates      | html |
+| Rating_Predict(quit)    | quit task, plz ignore |
+| Class_Instructions      | pics used in md |
+| Pics          | guideline from teacher |
+# Task1: Exploratory Data Analysis(Done)
+# Task2: Clustering(To do)
+# Task3: Category_Predict(Done)
 ## Predict category according to description&title
 
-compare the following models performance:
+### 11.13 Problem update：
 
-SVM;Decision Trees;Fastext;CNN
+There are often multiple categories for each production. For example, True Blood will have three categories: romance, comedy, and urban. This makes the categorization task not a simple one-dimensional output classification, but a multi-label classification problem.
 
-## Problem statement：
-
-每个作品的类别往往有多个。举个例子，《真爱至上》会有三个类别：爱情，喜剧，都市。这使得分类任务不是简单的一维输出分类，而是多标签分类问题。
-
-第一种解决思路：为简化任务回到简单的一维输出分类，在数据集处理部分仅保留每个作品的多个类别中的第一个类别，使得要预测的标签是唯一的。但造成新的问题：不再符合实际生活需要，准确率极低。
+The first solution idea: to simplify the task back to simple one-dimensional output categorization, only the first of the multiple categories of each work is kept in the processing part of the dataset, making the label to be predicted unique. However, a new problem is created: it no longer meets real-life needs and leads to very low accuracy because the main category is often not the first one.
 
 ### 11.14 update：
 
-所以目前采取第二种解决方案：对于每个样本，目标标签应该是一个二进制向量，表示每个类别是否存在。例如，如有三个类别：爱情，喜剧，都市，则样本标签 [1, 1, 1] ，表示作品属于这三个类别。而 [0, 1, 0] 表示只属于喜剧类别。如此，任务被确定为多标签文本分类任务Extreme Multi-label Text Classification（XMTC），即对于一个给定的文本，可能有多个标签，我们需要设计模型预测其标签。
+So the second solution is currently adopted: for each sample, the target label should be a binary vector indicating whether each category exists or not. For example, if there are three categories: romance, comedy, and urban, the sample label [1, 1, 1] , indicates that the work belongs to these three categories. While [0, 1, 0] indicates that it belongs only to the comedy category. In this way, the task is identified as Extreme Multi-label Text Classification (XMTC), a classical task in text categorization tasks, i.e., for a given text, there may be more than one label, and we need to design models to predict the probability of its different labels.
 
-*所以，模型输出层的激活函数采用sigmoid，而不是softmax。因为每个类别都是独立的，而不是互斥的。
+*So, the activation function for the output layer of the model uses sigmoid instead of softmax. because each category is independent and not mutually exclusive.
 
-*由于这是多标签分类任务，单一标签的准确率accuracy不足以评估整体性能。故而考虑采用其他指标，如F1-score，平均准确率等。
+*Since this is a multi-label classification task, single label accuracyaccuracy is not sufficient to evaluate the overall performance. Therefore, other metrics such as F1-score, average accuracy, etc. are considered.
 
 ### 11.15 update：
 
-多标签文本分类任务难度略大，尝试一些模型得到测试准确率均在20%左右，暂且搁置，先做下一个模型。（但我能检索到的在相同数据集上进行相同任务的项目，结果也是20%+准确率，怀疑是数据集问题）
+Multi-label text categorization task is slightly more difficult, try some models to get test accuracy are around 20%.
 
 ### 11.16 update:
 
-受其他XMTC项目启发，可以尝试OneVsRest方法。将多类分类问题转换为一系列二元分类问题。
+Inspired by other XMTC projects, try the OneVsRest approach. That is, converting a multi-class classification problem into a series of binary classification problems.
 
-###11.18 update:
+### 11.18 update:
 
-尝试tfidf处理特征+OneVsRest分类，结果还不错👍
+Tried tfidf processing features + OneVsRest classifier and it worked out fine!👍
 
-![目前结果](Pics/task3result.png)
+![Current resluts](Pics/task3result.png)
 
-相应地更新了task3的数据集预处理，重新划分了文件夹结构。
+The dataset preprocessing for this task was updated accordingly and the folder structure was reclassified.
 
-# Task4(ON GOING)
+### 11.23 update：
+
+Simple model deployment was accomplished using Flask, allowing the model to be used as a tool in the form of a web page.
+![Template page layout](Pics/demo).png
+
+# Task4: Rating_Predict(Quit)
+## Predict Rating according to description&title
 ### 11.15 update:
 
 单一标签分类问题，根据作品标题title和描述description预测它的分级rating。
@@ -69,22 +75,27 @@ compare the following models performance:
 
 SVM;Decision Trees;Fastext;CNN
 
-*现面临问题：尝试了多个模型后（CNN LSTM SVM NB ResNet MLP..）训练集正常收敛，但网格搜参后每个模型最佳参数情况下得到验证集和测试集准确率均在50%+，验证集存在从头到尾准确率不变、学不到东西的问题。初步推测依然是数据集类别不平衡造成，所以目前数据集拆分更新为分层拆分方法，但没有帮助。然后采用K-Fold交叉验证方法，但没有本质上解决这个问题。可能此数据集本身不太适合做预测或分类工作。也可能是个人采用方法有问题。等下次meeting讨论。
+*现面临问题：我们尝试了多个模型后（CNN LSTM SVM NB ResNet MLP..）训练集正常收敛，但网格搜参后每个模型最佳参数情况下得到验证集和测试集准确率均在50%+，验证集存在从头到尾准确率不变、学不到东西的问题。初步推测依然是数据集类别不平衡造成，所以目前数据集拆分更新为分层拆分方法，但没有帮助。然后采用K-Fold交叉验证方法，但没有本质上解决这个问题。可能此数据集本身不太适合做预测或分类工作。也可能是个人采用方法有问题。等下次meeting讨论。
 
 ###  11.18 update:
 
-*尝试tfidf处理特征
+Try to process features with tfidf but in vain.
+
+###  11.22 update:
+
+Try finetune BERT, accuracy score is still poor. 
+
+After reviewing related work, we found that no one has solved this problem yet. The reason for this is inferred to be that the profiles provided by netflix are not closely linked to age grading. So we decided to abandon this task.
 
 # Simple Github Guidance
-### 通过git clone得到本地仓库
+### Get the local repository via git clone
 	git clone https://github.com/YANGKeyan/NetflixContentInsights.git
 
-### 在本地仓库（文件夹）工作完成后，要上传文件：
+### To upload a file after working on the local repository (folder):
 	git pull origin main
 
-	git add 要上传/更新的文件名称
+	git add Name of the file to be uploaded/updated
 
-	git commit -m "说明更改了什么"
+	git commit -m "Description of what was changed"
 
 	git push
-
