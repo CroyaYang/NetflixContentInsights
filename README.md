@@ -14,8 +14,8 @@ DATASET FROM: https://www.kaggle.com/datasets/shivamb/netflix-shows
 | Category_Predict      | Task3 model       | 
 | ├── models          | models saved for category predict |
 | └── demo            | Model deployment with Flask  |
-|     ├── static      | css&images |
-|     └── templates      | html |
+|	├── static      | css&images |
+|	└── templates      | html |
 | Rating_Predict(quit)    | quit task, plz ignore |
 | Class_Instructions      | pics used in md |
 | Pics          | guideline from teacher |
@@ -57,7 +57,8 @@ The dataset preprocessing for this task was updated accordingly and the folder s
 ### 11.23 update：
 
 Simple model deployment was accomplished using Flask, allowing the model to be used as a tool in the form of a web page.
-![Template page layout](Pics/demo).png
+
+![Template page layout](Pics/demo.png)
 
 # Task4: Rating_Predict(Quit)
 ## Predict Rating according to description&title
