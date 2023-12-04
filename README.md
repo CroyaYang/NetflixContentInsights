@@ -20,7 +20,7 @@ DATASET FROM: https://www.kaggle.com/datasets/shivamb/netflix-shows
 | Class_Instructions      | pics used in md |
 | Pics          | guideline from teacher |
 # Task1: Exploratory Data Analysis(Done)
-# Task2: Clustering(To do)
+# Task2: Clustering(Done)
 # Task3: Category_Predict(Done)
 ## Predict category according to description&title
 
