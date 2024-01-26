@@ -1,5 +1,5 @@
 # NetflixContentInsights
-KM6312 Group Work Project
+KM6312 Project
 
 Netflix Content Insights: A Comprehensive Analysis of Movies and TV Shows
 
